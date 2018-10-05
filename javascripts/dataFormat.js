@@ -46,7 +46,15 @@ if ( typeof module === "object" && typeof module.exports === "object" ) {
 if ( typeof define === "function" && define.amd ) {
 	define( "jquery", [], function() {
 		return DataFormat;
-	} );
+    } );
+}
+//CMD
+if (typeof define === "function" && define.cmd) {
+// 有 Sea.js 等 CMD 模块加载器存在
+    define(function(require,exports){
+        var jquery = require('./jquery.min');
+        module.exports = DataFormat;
+    })
 }
 
 console.log(new DataFormat()==new DataFormat());
